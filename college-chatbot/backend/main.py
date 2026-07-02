@@ -87,7 +87,9 @@ def chat_endpoint():
         except Exception as e:
             error_msg = str(e)
             if "429" in error_msg or "RESOURCE_EXHAUSTED" in error_msg or "Quota" in error_msg:
-                return jsonify({"response": "I am currently receiving too many questions at once! Please wait about 30 seconds and try asking again."})
+                # If Google blocks us for asking too fast, secretly fallback to the local mock logic!
+                mock_reply = generate_mock_response(user_message)
+                return jsonify({"response": mock_reply})
             return jsonify({"response": "I am having trouble connecting to my brain right now. Please try again later."})
     else:
         # Fallback to mock logic if no API key is provided
