@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baderia Global Helpdesk AI</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Phosphor Icons for modern SVG icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <header>
+        <a href="landing.html" class="logo">
+            <img src="assets/gglogo.png" alt="Baderia Global Institute of engineering and management Logo" onerror="this.src='https://via.placeholder.com/45x45?text=B'">
+            Baderia Global Institute of engineering and management
+        </a>
+        <nav class="nav-links">
+            <a href="admin-login.html" class="btn btn-outline">Admin Access</a>
+        </nav>
+    </header>
+
+    <main class="main-container">
+        <div class="chat-wrapper glass-panel">
+            <div class="chat-header">
+                <div class="bot-avatar">
+                    <i class="ph ph-robot"></i>
+                </div>
+                <div class="chat-header-info">
+                    <h2>Helpdesk Assistant</h2>
+                    <p><span class="status-dot"></span> Online and ready to help</p>
+                </div>
+            </div>
+
+            <div class="chat-messages" id="chat-messages">
+                <!-- Welcome Message -->
+                <div class="message bot">
+                    <div class="message-content">
+                        Hello! Welcome to the Baderia Global Institute of Engineering and Management Helpdesk. How can I assist you today?
+                    </div>
+                </div>
+            </div>
+
+            <div class="quick-actions" id="quick-actions">
+                <button class="action-chip" onclick="sendQuickAction('Admission Process')">Admission Process</button>
+                <button class="action-chip" onclick="sendQuickAction('Fee Structure')">Fee Structure</button>
+                <button class="action-chip" onclick="sendQuickAction('Exam Form')">Exam Form</button>
+                <button class="action-chip" onclick="sendQuickAction('Scholarships')">Scholarships</button>
+                <button class="action-chip" onclick="sendQuickAction('Contact Department')">Contact Department</button>
+            </div>
+
+            <div class="chat-input-area">
+                <div class="input-wrapper">
+                    <textarea id="user-input" rows="1" placeholder="Type your question here..." onkeypress="handleKeyPress(event)"></textarea>
+                </div>
+                <button class="send-btn" onclick="sendMessage()" title="Send Message">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
