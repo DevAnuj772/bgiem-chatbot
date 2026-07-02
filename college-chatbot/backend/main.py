@@ -85,7 +85,10 @@ def chat_endpoint():
             return jsonify({"response": response.text})
             
         except Exception as e:
-            return jsonify({"response": f"AI Connection Error: Please check your API key. (Error: {str(e)})"})
+            error_msg = str(e)
+            if "429" in error_msg or "RESOURCE_EXHAUSTED" in error_msg or "Quota" in error_msg:
+                return jsonify({"response": "I am currently receiving too many questions at once! Please wait about 30 seconds and try asking again."})
+            return jsonify({"response": "I am having trouble connecting to my brain right now. Please try again later."})
     else:
         # Fallback to mock logic if no API key is provided
         mock_reply = generate_mock_response(user_message)
